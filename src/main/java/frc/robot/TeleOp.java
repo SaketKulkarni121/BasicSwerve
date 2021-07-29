@@ -1,8 +1,12 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 public class TeleOp {
-    public XBoxController driver;
+    
     public DriveTrain dt = DriveTrain.getInstance();
+
+    public XBoxController driver;
     public static TeleOp instance;
 
     public static TeleOp getInstance() {
