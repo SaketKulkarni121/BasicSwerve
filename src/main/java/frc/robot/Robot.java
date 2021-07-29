@@ -19,7 +19,6 @@ public class Robot extends TimedRobot {
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
-  private TeleOp tp;
   private DriveTrain dt;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
@@ -83,12 +82,13 @@ public class Robot extends TimedRobot {
   /** This function is called once when teleop is enabled. */
   @Override
   public void teleopInit() {
-    tp.run();
+    
   }
 
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
+    dt.tankDrive();
   }
 
   /** This function is called once when the robot is disabled. */
