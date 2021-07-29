@@ -8,7 +8,6 @@ public class DriveTrain {
     public static DriveTrain instance;
     // public TalonSRX t_frontLeft, t_frontRight, t_backLeft, t_backRight;
     public CANSparkMax d_frontLeft, d_frontRight, d_backLeft, d_backRight;
-    public XBoxController driver;
     // Big Horse, Big Giraffe, Big Sushi, Big Bird
 
     public static DriveTrain getInstance() {
@@ -24,12 +23,11 @@ public class DriveTrain {
         d_frontRight = new CANSparkMax(Constants.DT_BG_DRIVE_TALON_ID, MotorType.kBrushless);
         d_backLeft = new CANSparkMax(Constants.DT_BS_DRIVE_TALON_ID, MotorType.kBrushless);
 
-        // t_backRight = new TalonSRX(Constants.DT_BB_TURN_TALON_ID);
-        // t_frontLeft = new TalonSRX(Constants.DT_BH_TURN_TALON_ID);
-        // t_frontRight = new TalonSRX(Constants.DT_BG_TURN_TALON_ID);
-        // t_backLeft = new TalonSRX(Constants.DT_BS_TURN_TALON_ID);
+        t_backRight = new TalonSRX(Constants.DT_BB_TURN_TALON_ID);
+        t_frontLeft = new TalonSRX(Constants.DT_BH_TURN_TALON_ID);
+        t_frontRight = new TalonSRX(Constants.DT_BG_TURN_TALON_ID);
+        t_backLeft = new TalonSRX(Constants.DT_BS_TURN_TALON_ID);
 
-        driver = new XBoxController(Constants.XBOX_DRIVER);
     }
 
     public void setDrivePower(double backRightPower, double backLeftPower, double frontLeftPower,
@@ -39,20 +37,18 @@ public class DriveTrain {
         d_frontLeft.set(frontLeftPower);
         d_frontRight.set(frontRightPower);
     }
-    
-    public void tankDrive() {
-        double left = driver.getLeftStickYAxis();
-        double right = driver.getRightStickYAxis();
-        setDrivePower(right, left, left, right);
+
+    public void setTurnPower(double backRightPower, double backLeftPower, double frontLeftPower,
+            double frontRightPower) {
+        t_backRight.set(ControlMode.PercentOutput, backRightPower);
+        t_backLeft.set(ControlMode.PercentOutput, backLeftPower);
+        t_frontLeft.set(ControlMode.PercentOutput, frontLeftPower);
+        t_frontRight.set(ControlMode.PercentOutput, frontRightPower);
     }
 
-    // public void setTurnPower(double backRightPower, double backLeftPower, double frontLeftPower,
-    //         double frontRightPower) {
-    //     t_backRight.set(ControlMode.PercentOutput, backRightPower);
-    //     t_backLeft.set(ControlMode.PercentOutput, backLeftPower);
-    //     t_frontLeft.set(ControlMode.PercentOutput, frontLeftPower);
-    //     t_frontRight.set(ControlMode.PercentOutput, frontRightPower);
-    // }
+    public void tankDrive(double left, double right) {
+        setDrivePower(right, left, left, right);
+    }
 
     /*     public void stopDrive() {
         setDrivePower(0, 0, 0, 0);
