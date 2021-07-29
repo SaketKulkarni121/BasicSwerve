@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class DriveTrain {
 
     public static DriveTrain instance;
-    public TalonSRX t_frontLeft, t_frontRight, t_backLeft, t_backRight;
+    // public TalonSRX t_frontLeft, t_frontRight, t_backLeft, t_backRight;
     public CANSparkMax d_frontLeft, d_frontRight, d_backLeft, d_backRight;
     public XBoxController driver;
     // Big Horse, Big Giraffe, Big Sushi, Big Bird
