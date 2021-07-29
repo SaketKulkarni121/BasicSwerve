@@ -1,8 +1,8 @@
 package frc.robot;
 
 public class TeleOp {
-    public XBoxController driver;
-    public DriveTrain dt = DriveTrain.getInstance();
+    public static XBoxController driver;
+    public static DriveTrain dt = DriveTrain.getInstance();
     public static TeleOp instance;
 
     public static TeleOp getInstance() {
@@ -11,12 +11,12 @@ public class TeleOp {
         return instance;
     }
 
-    public TeleOp() {
+    private TeleOp() {
         driver = new XBoxController(Constants.XBOX_DRIVER);
     }
 
     
-    public void run() {
+    public static void run() {
         dt.tankDrive(driver.getLeftStickYAxis(), driver.getRightStickYAxis());
     }
 
