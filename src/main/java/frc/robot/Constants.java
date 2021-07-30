@@ -24,14 +24,13 @@ public class Constants {
 
 	//Big Sushi
 	public final static int DT_BS_DRIVE_TALON_ID = 14;
-	public final static int DT_BS_TURN_TALON_ID = 15;
+	public final static int DT_BS_TURN_TALON_ID = 7;
     public final static double DT_BS_ABS_ZERO = 0.5343101343101343;
     
-    public static final double DRIVER_DEAD_ZONE = 0.15;
+    public static final double DRIVER_DEAD_ZONE = 0.05;
 
 	public static final double DRIVER_ROT_DEAD_ZONE = 0.1;
 	
 	public static final int XBOX_DRIVER = 0;
-
 	public static final int XBOX_MANIP = 1;
 }
