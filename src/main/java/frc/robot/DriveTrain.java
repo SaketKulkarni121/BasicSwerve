@@ -65,8 +65,8 @@ public class DriveTrain {
     public void tankDrive(double left, double right) {
         // double left = driver.getLeftStickYAxis();
         // double right = driver.getRightStickYAxis();
-        setTurnLocation(300,570,4000,1250);
-        setDrivePower(  0.9*right, 0.9*left, 0.9*left, 0.9*right);
+        setTurnLocation(300,570,400,1250);
+        setDrivePower(  0.9*left, 0.9*right, 0.9*right, 0.9*left);
         
     }
 

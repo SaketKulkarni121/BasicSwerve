@@ -17,7 +17,7 @@ public class TeleOp {
 
     
     public static void run() {
-        dt.tankDrive(driver.getLeftStickYAxis(), driver.getRightStickYAxis());
+        dt.tankDrive(Utils.expodeadZone(driver.getLeftStickYAxis()), Utils.expodeadZone(driver.getRightStickYAxis()));
     }
 
 }
